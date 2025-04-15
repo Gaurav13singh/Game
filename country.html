@@ -281,7 +281,7 @@
       
           if (editingId) {
             // Edit mode
-            const res = await fetch(`http://localhost:5000/api/v1/country/${editingId}`, {
+            const res = await fetch(`https://sports-ipix.onrender.com/api/v1/country/${editingId}`, {
               method: "PATCH",
               headers: {
                 Authorization: localStorage.getItem("token") || ""
@@ -291,7 +291,7 @@
             editingId = null;
           } else {
             // Create mode
-            const res = await fetch(`http://localhost:5000/api/v1/country`, {
+            const res = await fetch(`https://sports-ipix.onrender.com/api/v1/country`, {
               method: "POST",
               headers: {
                 Authorization: localStorage.getItem("token") || ""

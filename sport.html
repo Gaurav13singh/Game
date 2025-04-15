@@ -355,8 +355,8 @@ sportForm.addEventListener("submit", async (e) => {
 
   const sportId = sportIdInput.value;
   const url = sportId
-    ? `http://localhost:5000/api/v1/sport/${sportId}`
-    : `http://localhost:5000/api/v1/sport`;
+    ? `https://sports-ipix.onrender.com/api/v1/sport/${sportId}`
+    : `https://sports-ipix.onrender.com/api/v1/sport`;
   const method = sportId ? "PATCH" : "POST";
 
   const res = await fetch(url, {

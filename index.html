@@ -18,6 +18,7 @@
 	<link rel="stylesheet" id="theme-change" type="text/css" href="#">
     <!-- Favicon Link -->
     <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <script src="assets/js/api.js"></script>
 </head>
 
 <body>
@@ -201,7 +202,7 @@
                             </div>
                             <div class="icon-info-text px-3">
                                 <h5 class="splash-title">Sports </h5>
-                                <h4 class="splash-card-title">0</h4>
+                                <h4 class="splash-card-title" id="sport_number">0</h4>
                             </div>
                         </div>
                     </div>
@@ -234,7 +235,7 @@
                         </div>
                         <div class="icon-info-text px-3">
                             <h5 class="splash-title">Country</h5>
-                            <h4 class="splash-card-title">0</h4>
+                            <h4 class="splash-card-title" id="country_number">0</h4>
                         </div>
                     </div>
                 </div>
@@ -250,7 +251,7 @@
                         </div>
                         <div class="icon-info-text px-3">
                             <h5 class="splash-title">City</h5>
-                            <h4 class="splash-card-title">0</h4>
+                            <h4 class="splash-card-title" id="city_number">0</h4>
                         </div>
                     </div>
                 </div>
@@ -266,7 +267,7 @@
                         </div>
                         <div class="icon-info-text px-3">
                             <h5 class="splash-title">Venue</h5>
-                            <h4 class="splash-card-title">0</h4>
+                            <h4 class="splash-card-title" id="venue_number">0</h4>
                         </div>
                     </div>
                 </div>
@@ -405,6 +406,11 @@
     <!-- Custom Script -->
     <script src="assets/js/custom.js"></script>
     <script>
+        const city_number = document.getElementById("city_number");
+        const country_number = document.getElementById("country_number");
+        const venue_number = document.getElementById("venue_number");
+        const sport_number = document.getElementById("sport_number");
+
         function parseJWT(token) {
             try {
                 const payload = token.split('.')[1];
@@ -448,6 +454,22 @@
             alert("No token found. Redirecting to login...");
             window.location.href = "login.html";
         }
+
+        async function fetchData() {
+            const [cities, countries, venues, sports] = await Promise.all([
+                getJSON("/city"),
+                getJSON("/country"),
+                getJSON("/venue"),
+                getJSON("/sport")
+            ]);
+            console.log(sports, cities, countries, venues);
+            city_number.innerText = cities?.data?.total;
+            country_number.innerText = countries?.data?.total;    
+            venue_number.innerText = venues?.data?.total;
+            sport_number.innerText = sports?.data?.total;
+        }
+        fetchData();
+        
     </script>
     
     

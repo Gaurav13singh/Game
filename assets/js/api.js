@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5000/api/v1';//Add your base URL here
+const BASE_URL = 'https://sports-ipix.onrender.com/api/v1';//Add your base URL here
 // const BASE_URL = 'https://api.example.com/v1'; // Example for production
 
 // 🔐 Helper: Get auth headers with token
