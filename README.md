@@ -11,10 +11,11 @@ Make sure to change your base url in `api.js` file.
 
 ## Usage
 
-### Importing the Module
-```javascript
-const api = require('./api');
+### Add To your HTML file
+```html
+<script src="assets/js/api.js"></script>
 ```
+
 
 ### Example Usage
 #### GET Request
