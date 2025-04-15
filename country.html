@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <title>Score Tab</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/datatables.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/icofont.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <!--Page Specific -->
+    <link rel="stylesheet" type="text/css" href="assets/css/nice-select.css">
+    <!--Custom Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" id="theme-change" type="text/css" href="#">
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/api.js"></script>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner">
+            <img src="assets/images/loader.gif" alt="" />
+        </div>
+    </div>
+    <!-- Main Body -->
+    <div class="page-wrapper">
+        <!-- Header Start -->
+        <header class="header-wrapper main-header">
+            <div class="header-inner-wrapper">
+                <div class="header-right">
+                    <div class="header-left">
+                        <div class="header-links">
+                            <a href="index.html" class="admin-logo">
+                                <img src="assets/logo.svg" alt="" class="sp_logo w-100 ">
+                                <img src="assets/logo.svg" alt="" class="sp_mini_logo w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-controls">
+                        <div class="user-info-wrapper header-links">
+                            <a href="javascript:void(0);" class="user-info">
+                                <img src="assets/images/user.jpg" alt="" class="user-img">
+                                <div class="blink-animation">
+                                    <span class="blink-circle"></span>
+                                    <span class="main-circle"></span>
+                                </div>
+                            </a>
+                            <div class="user-info-box">
+                                <div class="drop-down-header">
+                                    <h4>John Brown</h4>
+                                    <p>UI | UX Designer</p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="profile.html">
+                                            <i class="far fa-edit"></i> Edit Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="setting.html">
+                                            <i class="fas fa-cog"></i> Settings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="login.html">
+                                            <i class="fas fa-sign-out-alt"></i> logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Container Start -->
+        <div class="page-wrapper">
+            <div class="main-content">
+                <div class="page-title-wrapper">
+                    <div class="page-title-box splash-title-box-use">
+                        <ul>
+                            <li>
+                                <div class="add-group">
+                                    <a class="splash-btn btn btn-secondary" href="index.html">Go to Dashboard</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="splash-breadcrumb">
+                        <ul>
+                            <li>
+                             
+                                <div class="add-group">
+                                   <button class="splash-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Add
+                                        New</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Products view Start -->
+                <div class="row">
+                    <!-- Styled Table Card-->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card table-card">
+                            <div class="card-header pb-0">
+                                <a href="custom-notification-form.html">
+
+                                    <h4>Country</h4>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-styled"
+                                        style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl.No</th>
+                                            <th>Country</th>
+                                            <th>Flag</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="splash-footer-btm">
+                    <p>Copyright 2025 © Score Tab All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Country</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="separate-form">
+                        <div class="form-group">
+                            <label for="member-name" class="col-form-label">Country Name*
+                                </label>
+                            <input class="form-control" type="text"
+                                placeholder="Enter Country Name*" id="member-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="member-email" class="col-form-label">Flag </label>
+                            <input class="form-control" type="file"
+                                placeholder="Image" id="member-email">
+                        </div>
+        
+        
+                        <div class="form-group mb-0">
+                            <!-- <button class="btn btn-danger" type="button" onclick="resetForm()">Reset</button> -->
+                            <input class="btn btn-success" type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="closeForm()"></div>
+
+    <div class="popup-form" id="popupForm">
+        <button class="close-btn"  id="overlay" onclick="closeForm()">X</button>
+        <h4>Add New Country</h4>
+        <div class="card-body">
+           
+        </div>
+    </div>
+  
+    <script>
+        function openForm() {
+            document.getElementById("popupForm").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+    
+        function closeForm() {
+            document.getElementById("popupForm").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+    <!-- Preview Setting -->
+    <!-- Script Start -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/datatables.min.js"></script>
+    <script src="assets/js/dataTables.responsive.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <!-- Page Specific -->
+    <script src="assets/js/nice-select.min.js"></script>
+    <!-- Custom Script -->
+    <script src="assets/js/custom.js"></script>
+    <script>
+        const countryForm = document.querySelector(".separate-form");
+        const nameInput = document.querySelector("#member-name");
+        const fileInput = document.querySelector("#member-email");
+        const modalCloseBtn = document.querySelector(".btn-close");
+      
+        let editingId = null; // null = create mode; otherwise = edit mode
+      
+        // 👇 Load all countries
+        async function loadCountries() {
+          const data = await getJSON("/country");
+          const tbody = document.querySelector("#example tbody");
+          tbody.innerHTML = "";
+      
+          data?.data?.countries?.forEach((country, index) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>${index + 1}</td>
+              <td>${country.name}</td>
+              <td><img src="${country.flag}" width="40"/></td>
+              <td>
+                <a class="btn btn-sm btn-warning me-2 edit-btn" data-id="${country._id}" data-name="${country.name}">Edit</a>
+                <a class="btn btn-sm btn-danger delete-btn" data-id="${country._id}">Delete</a>
+              </td>`;
+            tbody.appendChild(tr);
+          });
+      
+          // 🔘 Attach edit events
+          document.querySelectorAll(".edit-btn").forEach((btn) => {
+            btn.addEventListener("click", async () => {
+              editingId = btn.getAttribute("data-id");
+              const name = btn.getAttribute("data-name");
+      
+              nameInput.value = name;
+              fileInput.value = ""; // clear previous file
+              document.querySelector("#exampleModalLabel").textContent = "Edit Country";
+              new bootstrap.Modal(document.getElementById('exampleModal')).show();
+            });
+          });
+      
+          // 🔘 Attach delete events
+          document.querySelectorAll(".delete-btn").forEach((btn) => {
+            btn.addEventListener("click", async () => {
+              const id = btn.getAttribute("data-id");
+              if (confirm("Are you sure you want to delete this country?")) {
+                await deleteJSON(`/country/${id}`);
+                loadCountries();
+              }
+            });
+          });
+        }
+      
+        // 🧾 Handle Form Submit (Create or Edit)
+        countryForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+      
+          const name = nameInput.value.trim();
+          const file = fileInput.files[0];
+      
+          const formData = new FormData();
+          formData.append("name", name);
+          if (file) formData.append("flag", file);
+      
+          if (editingId) {
+            // Edit mode
+            const res = await fetch(`http://localhost:5000/api/v1/country/${editingId}`, {
+              method: "PATCH",
+              headers: {
+                Authorization: localStorage.getItem("token") || ""
+              },
+              body: formData
+            });
+            editingId = null;
+          } else {
+            // Create mode
+            const res = await fetch(`http://localhost:5000/api/v1/country`, {
+              method: "POST",
+              headers: {
+                Authorization: localStorage.getItem("token") || ""
+              },
+              body: formData
+            });
+          }
+      
+          nameInput.value = "";
+          fileInput.value = "";
+          modalCloseBtn.click();
+          loadCountries();
+          document.querySelector("#exampleModalLabel").textContent = "Add New Country";
+        });
+      
+        // 📥 Load on start
+        loadCountries();
+      </script>
+      
+ 
+</body>
+</html>

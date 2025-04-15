@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <title>Score Tab</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/datatables.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/icofont.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <!--Page Specific -->
+    <link rel="stylesheet" type="text/css" href="assets/css/nice-select.css">
+    <!--Custom Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" id="theme-change" type="text/css" href="#">
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/api.js"></script>
+</head>
+
+<body>
+    <div class="loader">
+        <div class="spinner">
+            <img src="assets/images/loader.gif" alt="" />
+        </div>
+    </div>
+    <!-- Main Body -->
+    <div class="page-wrapper">
+        <!-- Header Start -->
+        <header class="header-wrapper main-header">
+            <div class="header-inner-wrapper">
+                <div class="header-right">
+
+                    <div class="header-left">
+                        <div class="header-links">
+                            <a href="index.html" class="admin-logo">
+                                <img src="assets/logo.svg" alt="" class="sp_logo w-100 ">
+                                <img src="assets/logo.svg" alt="" class="sp_mini_logo w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-controls">
+                        <div class="user-info-wrapper header-links">
+                            <a href="javascript:void(0);" class="user-info">
+                                <img src="assets/images/user.jpg" alt="" class="user-img">
+                                <div class="blink-animation">
+                                    <span class="blink-circle"></span>
+                                    <span class="main-circle"></span>
+                                </div>
+                            </a>
+                            <div class="user-info-box">
+                                <div class="drop-down-header">
+                                    <h4>John Brown</h4>
+                                    <p>UI | UX Designer</p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="profile.html">
+                                            <i class="far fa-edit"></i> Edit Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="setting.html">
+                                            <i class="fas fa-cog"></i> Settings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="login.html">
+                                            <i class="fas fa-sign-out-alt"></i> logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Sidebar Start -->
+        <!-- Container Start -->
+        <div class="page-wrapper">
+            <div class="main-content">
+                <div class="page-title-wrapper">
+                    <div class="page-title-box splash-title-box-use">
+                        <ul>
+                            <li>
+                                <div class="add-group">
+                                    <a class="splash-btn btn btn-secondary" href="index.html">Go to Dashboard</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="splash-breadcrumb">
+                        <ul>
+                            <li>
+                                <div class="add-group">
+                                   <button class="splash-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Add
+                                        New</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Products view Start -->
+                <div id="overlay" class="overlay" onclick="closeForm()"></div>
+
+                <div class="row ">
+                    <!-- Styled Table Card-->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 py-2 mt-2 pb-2">
+                        <div class="card table-card">
+                            <div class="card-header pb-0">
+                                <a href="custom-notification-form.html">
+
+                                    <h4>Sport</h4>
+                                </a>
+                            </div>
+                            <div class="card-body pb-4">
+                                <div class="table-responsive">
+                                    <table id="example"
+                                        class="table table-styled  ">
+                                        <thead>
+                                            <tr>
+                                                <th>Sl.No</th>
+                                                <th>Sport</th>
+                                                <th>Sport Logo</th>
+                                                <th>Sport Category</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table-body">
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Cricket</td>
+                                                <td>Sport Logo shall display here with Add/Edit and select a new logo
+                                                </td>
+                                                <td>Team</td>
+                                                <td>App</td>
+                                                <td>
+                                                    <a href="" class="btn btn-success">Edit</a>
+                                                    <a href="" class="btn btn-primary">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Badminton</td>
+                                                <td></td>
+                                                <td>PvP</td>
+                                                <td>Test</td>
+                                                <td>
+                                                    <a href="" class="btn btn-success">Edit</a>
+                                                    <a href="" class="btn btn-primary">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Tennis</td>
+                                                <td></td>
+                                                <td>PvP</td>
+                                                <td>App</td>
+                                                <td>
+                                                    <a href="" class="btn btn-success">Edit</a>
+                                                    <a href="" class="btn btn-primary">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Formula 1</td>
+                                                <td></td>
+                                                <td>Motor Sports</td>
+                                                <td>App</td>
+                                                <td>
+                                                    <a href="" class="btn btn-success">Edit</a>
+                                                    <a href="" class="btn btn-primary">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Football</td>
+                                                <td></td>
+                                                <td>Team</td>
+                                                <td>App</td>
+                                                <td>
+                                                    <a href="" class="btn btn-success">Edit</a>
+                                                    <a href="" class="btn btn-primary">Delete</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="splash-footer-btm">
+                    <p>Copyright 2025 © Score Tab All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="popup-form" id="popupForm">
+        <button class="close-btn" onclick="closeForm()">X</button>
+        <h4 id="formTitle">Add New Sport</h4>
+        <div class="card-body">
+            <form id="sportForm" class="separate-form">
+                
+                    <input type="hidden" id="sport-id" /> <!-- For editing -->
+                  
+                    <div class="form-group">
+                      <label for="sport-name">Sport Name</label>
+                      <input type="text" id="sport-name" class="form-control" required />
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="category">Sport Category</label>
+                      <select id="category" class="form-control" required></select>
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="team-image">Logo</label>
+                      <input type="file" id="team-image" class="form-control" />
+                    </div>
+                  
+                    <div class="form-group">
+                      <input class="btn btn-success" type="submit" value="Submit" />
+                    </div>
+                  
+                  
+            </form>
+        </div>
+    </div>
+    
+    
+    <!-- Script Start -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/datatables.min.js"></script>
+    <script src="assets/js/dataTables.responsive.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <!-- Page Specific -->
+    <script src="assets/js/nice-select.min.js"></script>
+    <!-- Custom Script -->
+    <script src="assets/js/custom.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+
+<script>
+  
+
+const sportForm = document.getElementById("sportForm");
+const sportNameInput = document.getElementById("sport-name");
+const categorySelect = document.getElementById("category");
+const logoInput = document.getElementById("team-image");
+const sportIdInput = document.getElementById("sport-id");
+const tableBody = document.getElementById("table-body");
+
+let editingSportId = null;
+
+function openForm() {
+  document.getElementById("popupForm").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("popupForm").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+}
+
+// Load Categories
+async function loadCategories() {
+  const res = await getJSON("/sportcategory");
+  const categories = res?.data?.categories || [];
+  categorySelect.innerHTML = '<option value="">Select Category</option>';
+  categories.forEach(cat => {
+    const option = document.createElement("option");
+    option.value = cat._id;
+    option.textContent = cat.name;
+    categorySelect.appendChild(option);
+  });
+}
+
+// Load Sports
+async function loadSports() {
+  const res = await getJSON("/sport");
+  const sports = res?.data?.data || [];
+  tableBody.innerHTML = "";
+
+  sports.forEach((sport, index) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${sport.name}</td>
+      <td><img src="${sport.logo}" width="40"/></td>
+      <td>${sport.category?.name || "-"}</td>
+      <td>
+        <a class="btn btn-success edit-btn" data-id="${sport._id}">Edit</a>
+        <a class="btn btn-danger delete-btn" data-id="${sport._id}">Delete</a>
+      </td>
+    `;
+    tableBody.appendChild(tr);
+  });
+
+  document.querySelectorAll(".edit-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.dataset.id;
+      const sport = await getJSON(`/sport/${id}`);
+        const data = sport?.data || {};
+      editingSportId = data._id;
+      sportNameInput.value = data.name;
+      categorySelect.value = data.category?._id || "";
+      sportIdInput.value = data._id;
+      logoInput.value = "";
+      openForm();
+    });
+  });
+
+  document.querySelectorAll(".delete-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.dataset.id;
+      if (confirm("Delete this sport?")) {
+        await deleteJSON(`/sport/${id}`);
+        loadSports();
+      }
+    });
+  });
+}
+
+// Submit Form
+sportForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData();
+  formData.append("name", sportNameInput.value);
+  formData.append("category", categorySelect.value);
+  if (logoInput.files[0]) {
+    formData.append("logo", logoInput.files[0]);
+  }
+
+  const sportId = sportIdInput.value;
+  const url = sportId
+    ? `http://localhost:5000/api/v1/sport/${sportId}`
+    : `http://localhost:5000/api/v1/sport`;
+  const method = sportId ? "PATCH" : "POST";
+
+  const res = await fetch(url, {
+    method,
+    headers: {
+      Authorization: localStorage.getItem("token") || "",
+    },
+    body: formData,
+  });
+
+  if (res.ok) {
+    alert("Sport saved!");
+    sportForm.reset();
+    sportIdInput.value = "";
+    closeForm();
+    loadSports();
+  } else {
+    const err = await res.json();
+    alert("Error: " + err.message);
+  }
+});
+
+// Initial load
+loadCategories();
+loadSports();
+
+
+  </script>
+  
+</body>
+
+</html>

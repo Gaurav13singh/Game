@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head>
+    <title>Score Tab</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="MobileOptimized" content="320" />
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/datatables.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/icofont.min.css" />
+    <link rel="stylesheet" href="assets/css/swiper.min.css" />
+    <!--Page Specific -->
+    <link rel="stylesheet" type="text/css" href="assets/css/nice-select.css" />
+    <!--Custom Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" id="theme-change" type="text/css" href="#" />
+    <!-- Favicon Link -->
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/images/favicon.png"
+    />
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/api.js"></script>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="spinner">
+        <img src="assets/images/loader.gif" alt="" />
+      </div>
+    </div>
+    <!-- Main Body -->
+    <div class="page-wrapper">
+      <!-- Header Start -->
+      <header class="header-wrapper main-header">
+        <div class="header-inner-wrapper">
+          <div class="header-right">
+            <div class="header-left">
+              <div class="header-links">
+                <a href="index.html" class="admin-logo">
+                  <img src="assets/logo.svg" alt="" class="sp_logo w-100" />
+                  <img
+                    src="assets/logo.svg"
+                    alt=""
+                    class="sp_mini_logo w-100"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="header-controls">
+              <div class="user-info-wrapper header-links">
+                <a href="javascript:void(0);" class="user-info">
+                  <img src="assets/images/user.jpg" alt="" class="user-img" />
+                  <div class="blink-animation">
+                    <span class="blink-circle"></span>
+                    <span class="main-circle"></span>
+                  </div>
+                </a>
+                <div class="user-info-box">
+                  <div class="drop-down-header">
+                    <h4>John Brown</h4>
+                    <p>UI | UX Designer</p>
+                  </div>
+                  <ul>
+                    <li>
+                      <a href="profile.html">
+                        <i class="far fa-edit"></i> Edit Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a href="setting.html">
+                        <i class="fas fa-cog"></i> Settings
+                      </a>
+                    </li>
+                    <li>
+                      <a href="login.html">
+                        <i class="fas fa-sign-out-alt"></i> logout
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Container Start -->
+      <div class="page-wrapper">
+        <div class="main-content">
+          <div class="page-title-wrapper">
+            <div class="page-title-box splash-title-box-use">
+              <ul>
+                <li>
+                  <div class="add-group">
+                    <a class="splash-btn btn btn-secondary" href="index.html"
+                      >Go to Dashboard</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="splash-breadcrumb">
+              <ul>
+                <li>
+                  <div class="add-group">
+                    <!-- <a class="splash-btn" href="excel-import.html">Excel Import</a> -->
+                    <button
+                      class="splash-btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModalexcel"
+                    >
+                      Excel Import
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <div class="add-group">
+                    <button
+                      id="addVenueBtn"
+                      class="splash-btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      Add New
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Products view Start -->
+          <div class="row">
+            <!-- Styled Table Card-->
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="card table-card">
+                <div class="card-header pb-0">
+                  <a href="custom-notification-form.html">
+                    <h4>Venue</h4>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table
+                      id="example"
+                      class="table table-styled"
+                      style="width: 100%"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Sl.No</th>
+                          <th>Name</th>
+                          <th>Geo Location</th>
+                          <th>Lat</th>
+                          <th>Long</th>
+                          <th>City</th>
+                          <th>Country</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>LB Stadium</td>
+                          <td>https://maps.app.goo.gl/kApWjiGoK33ikJ6W8</td>
+                          <td>17.39930883</td>
+                          <td>78.47315805</td>
+                          <td>Hyderabad</td>
+                          <td>India</td>
+                          <td>
+                            <a href="" class="btn btn-success">Edit</a>
+                            <a href="" class="btn btn-primary">Delete</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Rajiv Gandhi International Cricket Stadium</td>
+                          <td>https://maps.app.goo.gl/wshhdoPvK5LQkMxx7</td>
+                          <td>17.40714887</td>
+                          <td>78.55157561</td>
+                          <td>Hyderabad</td>
+                          <td>India</td>
+                          <td>
+                            <a href="" class="btn btn-success">Edit</a>
+                            <a href="" class="btn btn-primary">Delete</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="splash-footer-btm">
+            <p>Copyright 2025 © Score Tab All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add New Venue</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="separate-form" id="venueForm">
+              <input type="hidden" name="id" />
+
+              <div class="form-group">
+                <label for="member-name" class="col-form-label"> Name* </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="Enter  Name*"
+                  id="member-name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="member-name" class="col-form-label">
+                  Geo Location*
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="geoLocation"
+                  placeholder="Enter  Geo Location*"
+                  id="member-name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="member-name" class="col-form-label"> Lat* </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="lat"
+                  placeholder="Enter  Lat*"
+                  id="member-name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="member-name" class="col-form-label"> Long* </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="long"
+                  placeholder="Enter  Long*"
+                  id="member-name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="company-name" class="col-form-label">
+                  Country
+                </label>
+                <select name="country" id="" class="form-control">
+                  <option value="0" data-select2-id="select2-data-3-pme4">
+                    ALL
+                  </option>
+                  <option value="1" data-select2-id="select2-data-18-okl8">
+                    India
+                  </option>
+                  <option value="1" data-select2-id="select2-data-18-okl8">
+                    Australia
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="company-name" class="col-form-label"> City </label>
+                <select name="city" id="" class="form-control">
+                  <option value="0" data-select2-id="select2-data-3-pme4">
+                    ALL
+                  </option>
+                  <option value="1" data-select2-id="select2-data-18-okl8">
+                    Hyderabad
+                  </option>
+                </select>
+              </div>
+              <div class="form-group mb-0">
+                <!-- <button class="btn btn-danger" type="button" onclick="resetForm()">Reset</button> -->
+                <input class="btn btn-success" type="submit" value="Submit" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModalexcel"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabelexcel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabelexcel">
+              Excel Import
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="separate-form" id="venueFormexcel">
+              <div class="form-group">
+                <label for="member-email" class="col-form-label"
+                  >Excel File</label
+                >
+                <input
+                  class="form-control"
+                  type="file"
+                  placeholder="Enter Image"
+                  id="member-email"
+                />
+              </div>
+
+              <div class="form-group mb-0">
+                <!-- <button class="btn btn-danger" type="button" onclick="resetForm()">Reset</button> -->
+                <input
+                  class="btn btn-success"
+                  type="button"
+                  value="Submit"
+                  id="uploadBtn"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preview Setting -->
+    <!-- Script Start -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/datatables.min.js"></script>
+    <script src="assets/js/dataTables.responsive.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <!-- Page Specific -->
+    <script src="assets/js/nice-select.min.js"></script>
+    <!-- Custom Script -->
+
+    <script src="assets/js/custom.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#example").DataTable();
+      });
+    </script>
+
+    <script>
+      function openForm() {
+        document.getElementById("popupForm").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("popupForm").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    }
+    
+    document.addEventListener("DOMContentLoaded", () => {
+          const cityMap = new Map();
+          const countryMap = new Map();
+        const venueTableBody = document.querySelector("#example tbody");
+        const addBtn = document.querySelector("#addVenueBtn");
+        const form = document.querySelector("#exampleModal #venueForm");
+        const modal = new bootstrap.Modal(
+          document.getElementById("exampleModal")
+        );
+        const uploadBtn = document.querySelector(
+          "#exampleModalexcel #uploadBtn"
+        );
+
+        // Load venues on page load
+        loadVenues();
+
+        // Load form for add
+        addBtn.addEventListener("click", async () => {
+          await loadCityAndCountryOptions();
+          form.reset();
+          form.setAttribute("data-id", "");
+          modal.show();
+        });
+
+        // Submit form (add or update)
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const id = form.getAttribute("data-id");
+          const formData = new FormData(form);
+          const data = {
+            name: formData.get("name"),
+            geolocation: formData.get("geoLocation"),
+            lat: formData.get("lat"),
+            long: formData.get("long"),
+            city: formData.get("city"),
+            country: formData.get("country"),
+          };
+
+          if (id) {
+            await putJSON(`/venue/${id}`, data);
+          } else {
+            await postJSON("/venue", data);
+          }
+
+          modal.hide();
+          loadVenues();
+        });
+
+        // Load venues
+        async function loadVenues() {
+          const venues = await getJSON("/venue");
+          venueTableBody.innerHTML = "";
+
+          venues?.data?.venues?.forEach((v, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${v.name}</td>
+        <td><a href="${v.location.geolocation}" target="_blank">${
+              v.location.geolocation
+            }</a></td>
+        <td>${v.location.lat}</td>
+        <td>${v.location.long}</td>
+        <td>${v.city.name}</td>
+        <td>${v.country.name}</td>
+        <td>
+          <a class="btn btn-success btn-sm edit-btn" data-id="${v._id}">Edit</a>
+          <a class="btn btn-danger btn-sm delete-btn" data-id="${
+            v._id
+          }">Delete</a>
+        </td>
+      `;
+            venueTableBody.appendChild(row);
+          });
+
+          // Attach events for Edit/Delete
+          document.querySelectorAll(".edit-btn").forEach((btn) => {
+            btn.addEventListener("click", () =>
+              openEditModal(btn.getAttribute("data-id"))
+            );
+          });
+
+          document.querySelectorAll(".delete-btn").forEach((btn) => {
+            btn.addEventListener("click", async () => {
+              if (confirm("Are you sure to delete this venue?")) {
+                await deleteJSON(`/venue/${btn.getAttribute("data-id")}`);
+                loadVenues();
+              }
+            });
+          });
+        }
+
+        // Load city and country options
+        async function loadCityAndCountryOptions() {
+          const citySelect = form.querySelector("select[name='city']");
+          const countrySelect = form.querySelector("select[name='country']");
+          citySelect.innerHTML = `<option value="">Select City</option>`;
+          countrySelect.innerHTML = `<option value="">Select Country</option>`;
+
+          const [cities, countries] = await Promise.all([
+            getJSON("/city"),
+            getJSON("/country"),
+          ]);
+          cities?.data?.cities?.forEach((c) => cityMap.set(c.name, c._id));
+
+         
+          countries?.data?.countries?.forEach((c) =>
+            countryMap.set(c.name, c._id)
+          );
+          cities?.data?.cities.forEach((city) => {
+            const option = document.createElement("option");
+            option.value = city._id;
+            option.textContent = city.name;
+            citySelect.appendChild(option);
+          });
+          countries?.data?.countries.forEach((country) => {
+            const option = document.createElement("option");
+            option.value = country._id;
+            option.textContent = country.name;
+            countrySelect.appendChild(option);
+          });
+        }
+         loadCityAndCountryOptions();
+        // Open edit modal and load data
+        async function openEditModal(id) {
+          const venue = await getJSON(`/venue/${id}`);
+          const v = venue.data;
+          console.log(v);
+
+          await loadCityAndCountryOptions();
+
+          form.setAttribute("data-id", id);
+          form.querySelector('input[placeholder="Enter  Name*"]').value =
+            v.name;
+          form.querySelector(
+            'input[placeholder="Enter  Geo Location*"]'
+          ).value = v.location.geolocation;
+          form.querySelector('input[placeholder="Enter  Lat*"]').value =
+            v.location.lat;
+          form.querySelector('input[placeholder="Enter  Long*"]').value =
+            v.location.long;
+          form.querySelector('select[name="country"]').value = v.country._id;
+          form.querySelector('select[name="city"]').value = v.city._id;
+
+          modal.show();
+        }
+        // Bulk Upload from Excel File
+        uploadBtn.addEventListener("click", async () => {
+          const fileInput = document.querySelector("#member-email"); // Assuming this is the file input field
+          const file = fileInput.files[0];
+
+          if (!file) {
+            alert("Please choose an Excel file to upload.");
+            return;
+          }
+
+          const reader = new FileReader();
+          reader.onload = async (e) => {
+            const data = e.target.result;
+            const workbook = XLSX.read(data, { type: "binary" });
+
+            // Assuming the first sheet contains the data
+            const sheetName = workbook.SheetNames[0];
+            const sheet = workbook.Sheets[sheetName];
+
+            // Parse the Excel sheet to JSON
+            const jsonData = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+
+            console.log(jsonData[0].geolocation); // Log the parsed data
+            for (let venue of jsonData) {
+              const payload = {
+                name: venue.name,
+                geolocation: venue.geolocation,
+                lat: venue.lat,
+                long: venue.long,
+                city: cityMap.get(venue.city),
+                country: countryMap.get(venue.country),
+              };
+              // Send data to the backend for each venue
+              try {
+                await postJSON("/venue", payload);
+              } catch (error) {
+                console.error("Error uploading venue: ", error);
+              }
+            }
+
+            alert("Bulk import successful!");
+            loadVenues(); // Reload the venues after import
+          };
+
+          reader.readAsBinaryString(file);
+        });
+      });
+    </script>
+  </body>
+</html>
