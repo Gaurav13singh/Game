@@ -25,6 +25,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/api.js"></script>
 </head>
 <body>
     <div class="loader">
@@ -175,17 +176,17 @@
                         <div class="form-group">
                             <label for="member-name" class="col-form-label"> Name*
                                 </label>
-                            <input class="form-control" type="text"
-                                placeholder="Enter  Name*" id="member-name">
+                            <input class="form-control" type="text" name="name"
+                                placeholder="Enter  Name*" id="ott-name">
                         </div>
                         <div class="form-group">
                             <label for="member-email" class="col-form-label">Logo </label>
-                            <input class="form-control" type="file"
+                            <input class="form-control" type="file" name="logo" id="logo"
                                 placeholder="Image" id="member-email">
                         </div>
                         <div class="form-group">
                             <label for="company-name" class="col-form-label"> Country </label>
-                            <select name="" id="" class="form-control">
+                            <select name="country" id="country-select" class="form-control">
                             <option value="0" data-select2-id="select2-data-3-pme4">ALL</option>
                             <option value="1" data-select2-id="select2-data-18-okl8">India</option>
                             <option value="1" data-select2-id="select2-data-18-okl8">Australia</option>
@@ -194,14 +195,14 @@
                         <div class="form-group">
                             <label for="member-name" class="col-form-label"> Play Store Link*
                                 </label>
-                            <input class="form-control" type="text"
-                                placeholder="Enter  Play Store Link*" id="member-name">
+                            <input class="form-control" type="text" name="playstore"
+                                placeholder="Enter  Play Store Link*" id="playstore-link">
                         </div>
                         <div class="form-group">
                             <label for="member-name" class="col-form-label"> AppStore Link*
                                 </label>
-                            <input class="form-control" type="text"
-                                placeholder="Enter  AppStore Link*" id="member-name">
+                            <input class="form-control" type="text" name="appstore"
+                                placeholder="Enter  AppStore Link*" id="appstore-link">
                         </div>
                         <div class="form-group mb-0">
                             <!-- <button class="btn btn-danger" type="button" onclick="resetForm()">Reset</button> -->
@@ -245,5 +246,122 @@
         document.getElementById("overlay").style.display = "none";
     }
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const tableBody = document.querySelector("#example tbody");
+    const form = document.querySelector(".separate-form");
+    const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+    let editingOTTId = null;
+
+    // Load OTTs on page load
+    async function loadOTTs() {
+        const otts = await getJSON("/ott");
+        tableBody.innerHTML = ""; // Clear table
+        otts?.data?.data.forEach((ott, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${ott.name}</td>
+                <td><img src="${ott.logo || ''}" width="40"></td>
+                <td>${ott.country.name}</td>
+                <td><a href="${ott.playStoreLink}" target="_blank">${ott.playStoreLink}</a></td>
+                <td><a href="${ott.appStoreLink}" target="_blank">${ott.appStoreLink}</a></td>
+                <td>
+                    <button class="btn btn-success" onclick='editOTT(${JSON.stringify(ott)})'>Edit</button>
+                    <button class="btn btn-primary" onclick="deleteOTT('${ott._id}')">Delete</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Load country options
+    async function loadCountries() {
+        try {
+            const res = await getJSON("/country");
+            const countries = res?.data?.countries || [];
+            const countrySelect = document.getElementById("country-select");
+            countrySelect.innerHTML = `<option value="">Select Country</option>`;
+            countries.forEach(country => {
+                const option = document.createElement("option");
+                option.value = country._id;
+                option.textContent = country.name;
+                countrySelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error("Error loading countries:", error);
+        }
+    }
+
+    loadOTTs();
+    loadCountries();
+
+    // Handle form submit
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const formData = new FormData();
+        const logoFile = document.getElementById("logo").files[0];
+
+        formData.append("name", document.getElementById("ott-name").value);
+        formData.append("country", document.getElementById("country-select").value);
+        formData.append("playStoreLink", document.getElementById("playstore-link").value);
+        formData.append("appStoreLink", document.getElementById("appstore-link").value);
+        if (logoFile) formData.append("logo", logoFile);
+        console.log(formData)
+        try {
+            if (editingOTTId) {
+                
+                await fetch(`https://sports-ipix.onrender.com/api/v1/ott/${editingOTTId}`, {
+  method: "PATCH",
+  headers: {
+    Authorization: localStorage.getItem("token") || "",
+  },
+  body: formData,
+});
+
+            } else {
+                
+                const res = await fetch(`https://sports-ipix.onrender.com/api/v1/ott`, {
+              method: "POST",
+              headers: {
+                Authorization: localStorage.getItem("token") || ""
+              },
+              body: formData
+            });
+            }
+            editingOTTId = null;
+            form.reset();
+            modal.hide();
+            loadOTTs();
+        } catch (error) {
+            console.error("Error submitting OTT:", error);
+        }
+    });
+
+    // Edit OTT
+    window.editOTT = function (ott) {
+        editingOTTId = ott._id;
+        document.getElementById("ott-name").value = ott.name;
+        document.getElementById("country-select").value = ott.country._id;
+        document.getElementById("playstore-link").value = ott.playStoreLink;
+        document.getElementById("appstore-link").value = ott.appStoreLink;
+        modal.show();
+    };
+
+    // Delete OTT
+    window.deleteOTT = async function (id) {
+        if (confirm("Are you sure you want to delete this OTT?")) {
+            try {
+                await deleteJSON(`/ott/${id}`);
+                loadOTTs();
+            } catch (error) {
+                console.error("Error deleting OTT:", error);
+            }
+        }
+    };
+});
+
+    </script>
+    
 </body>
 </html>

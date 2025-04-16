@@ -283,7 +283,7 @@
                         </div>
                         <div class="icon-info-text px-3">
                             <h5 class="splash-title">OTT</h5>
-                            <h4 class="splash-card-title">0</h4>
+                            <h4 class="splash-card-title" id="ott_number">0</h4>
                         </div>
                     </div>
                 </div>
@@ -410,6 +410,7 @@
         const country_number = document.getElementById("country_number");
         const venue_number = document.getElementById("venue_number");
         const sport_number = document.getElementById("sport_number");
+        const ott_number = document.getElementById("ott_number");
 
         function parseJWT(token) {
             try {
@@ -456,17 +457,18 @@
         }
 
         async function fetchData() {
-            const [cities, countries, venues, sports] = await Promise.all([
+            const [cities, countries, venues, sports,ott] = await Promise.all([
                 getJSON("/city"),
                 getJSON("/country"),
                 getJSON("/venue"),
-                getJSON("/sport")
+                getJSON("/sport"),
+                getJSON("/ott")
             ]);
-            console.log(sports, cities, countries, venues);
             city_number.innerText = cities?.data?.total;
             country_number.innerText = countries?.data?.total;    
             venue_number.innerText = venues?.data?.total;
             sport_number.innerText = sports?.data?.total;
+            ott_number.innerText = ott?.data?.total;
         }
         fetchData();
         

@@ -17,7 +17,6 @@ async function postJSON(url, data) {
         headers: getAuthHeaders(),
         body: JSON.stringify(data),
     });
-    console.log(data)
     return response;
 }
 
@@ -37,6 +36,15 @@ async function putJSON(url, data) {
         headers: getAuthHeaders(),
         body: JSON.stringify(data),
     });
+    return response.json();
+}
+async function patchJSON(url, data) {
+    const response = await fetch(`${BASE_URL}${url}`, {
+        method: 'PATCH',
+        headers: getAuthHeaders(),
+        body: JSON.stringify(data),
+    });
+    console.log(response)
     return response.json();
 }
 
